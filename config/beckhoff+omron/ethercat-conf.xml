@@ -1,0 +1,77 @@
+<masters>
+    <master idx="0" appTimePeriod="1000000" refClockSyncCycles="-1">
+        <slave idx="0" type="EK1100"/>
+        <slave idx="1" type="EL1008"/>
+        <slave idx="2" type="EL2008"/>
+        <slave idx="3" type="generic" vid="0x00000083" pid="0x000000b0" name="X" configPdos="true">
+            <dcConf assignActivate="300" sync0Cycle="*1" sync0Shift="0"/>
+            <watchdog divider="2498" intervals="1000"/>
+            <sdoConfig idx="0x6060" subIdx="0x00">
+                <sdoDataRaw data="09"/>
+            </sdoConfig>
+            <syncManager idx="0" dir="out"> 
+            </syncManager>
+            <syncManager idx="1" dir="in"> 
+            </syncManager>
+            <syncManager idx="2" dir="out">
+                <pdo idx="0x1702">
+                    <pdoEntry idx="0x6040" subIdx="00" bitLen="16" halPin="controlword" halType="u32"/>
+                    <pdoEntry idx="0x607a" subIdx="00" bitLen="32" halPin="pos-cmd-raw" halType="s32"/>
+                    <pdoEntry idx="0x60ff" subIdx="00" bitLen="32" halPin="vel-cmd-raw" halType="s32"/>
+                    <pdoEntry idx="0x6071" subIdx="00" bitLen="16" halPin="torque-cmd-raw" halType="s32"/>
+                    <pdoEntry idx="0x6060" subIdx="00" bitLen="8" halPin="oper-mode" halType="s32"/>
+                    <pdoEntry idx="0x60b8" subIdx="00" bitLen="16" halPin="touch-probe" halType="u32"/>
+                    <pdoEntry idx="0x607f" subIdx="00" bitLen="32" halPin="max-vel-raw" halType="u32"/>
+                </pdo>
+            </syncManager>
+            <syncManager idx="3" dir="in">
+                <pdo idx="0x1b04">
+                    <pdoEntry idx="0x603f" subIdx="00" bitLen="16" halPin="error-code" halType="u32"/>
+                    <pdoEntry idx="0x6041" subIdx="00" bitLen="16" halPin="statusword" halType="u32"/>
+                    <pdoEntry idx="0x6064" subIdx="00" bitLen="32" halPin="pos-fb-raw" halType="s32"/>
+                    <pdoEntry idx="0x6077" subIdx="00" bitLen="16" halPin="torque-fb" halType="s32"/>
+                    <pdoEntry idx="0x6061" subIdx="00" bitLen="8" halPin="oper-mode-fb" halType="s32"/>
+                    <pdoEntry idx="0x60b9" subIdx="00" bitLen="16" halPin="latch-stat" halType="u32"/>
+                    <pdoEntry idx="0x60ba" subIdx="00" bitLen="32" halPin="latch-pos1" halType="s32"/>
+                    <pdoEntry idx="0x60bc" subIdx="00" bitLen="32" halPin="latch-pos2" halType="s32"/>
+                    <pdoEntry idx="0x60fd" subIdx="00" bitLen="32" halType="complex">
+                        <complexEntry bitLen="1" halPin="din-not" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-pot" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-dec" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit03-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit04-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit05-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit06-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit07-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit08-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit09-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit10-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit11-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit12-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit13-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit14-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit15-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-pc" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-ext1" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-ext2" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-ext3" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-mon0" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-mon1" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-mon2" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-pcl" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-ncl" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-stop" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-bkir" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-sf1" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-sf2" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="din-edm" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit30-din" halType="bit"/>
+                        <complexEntry bitLen="1" halPin="bit31-din" halType="bit"/>
+                    </pdoEntry>
+                    <pdoEntry idx="0x606C" subIdx="00" bitLen="32" halPin="vel-fb-raw" halType="s32"/>
+                </pdo>
+            </syncManager>
+        </slave>
+        
+    </master>
+</masters>

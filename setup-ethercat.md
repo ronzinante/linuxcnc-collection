@@ -1,12 +1,11 @@
-# EtherCAT on LinuxCNC
+# Setup EtherCAT master
 
 ## Summary
 
-- [EtherCAT on LinuxCNC](#ethercat-on-linuxcnc)
+- [Setup EtherCAT master](#setup-ethercat-master)
   - [Summary](#summary)
-  - [Devices Supported by LinuxCNC-Ethercat](#devices-supported-by-linuxcnc-ethercat)
-  - [Installation of EtherCAT](#installation-of-ethercat)
-  - [Setup EtherCAT](#setup-ethercat)
+  - [Installation](#installation)
+  - [Setup](#setup)
     - [Setup process](#setup-process)
     - [Hardware connection](#hardware-connection)
     - [Service configuration](#service-configuration)
@@ -17,13 +16,10 @@
     - [Check all dmesg](#check-all-dmesg)
     - [Check journalctl logs related to ethercat](#check-journalctl-logs-related-to-ethercat)
     - [Check all journalctl logs](#check-all-journalctl-logs)
+    - [Increase debug level](#increase-debug-level)
   - [Hyperlinks](#hyperlinks)
 
-## Devices Supported by LinuxCNC-Ethercat
-
-<https://github.com/linuxcnc-ethercat/linuxcnc-ethercat/blob/master/documentation/DEVICES.md>
-
-## Installation of EtherCAT
+## Installation
 
 Original forum post: <https://forum.linuxcnc.org/ethercat/45336-ethercat-installation-from-repositories-how-to-step-by-step>
 
@@ -38,7 +34,7 @@ sudo apt install linuxcnc-ethercat
 sudo apt install ethercat-master libethercat-dev linuxcnc-ethercat
 ```
 
-## Setup EtherCAT
+## Setup
 
 ![alt text](img/ethercat-logo.png)
 
@@ -251,6 +247,14 @@ Aug 27 20:26:14 linuxcnc kernel: EtherCAT WARNING 0-3: Failed to configure mappi
 Aug 27 20:26:14 linuxcnc kernel: EtherCAT 0: Slave states on main device: OP.
 # [terminal output]
 ```
+
+### Increase debug level
+
+```sh
+ethercat debug 1
+```
+
+Repeat previous commands for troubleshooting.
 
 ## Hyperlinks
 

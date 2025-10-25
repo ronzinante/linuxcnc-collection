@@ -1,0 +1,37 @@
+<masters>
+  <master idx="0">
+    <slave idx="0" type="EK1100" name="D1"/>
+    <slave idx="1" type="EL1008" name="D2"/>
+    <slave idx="2" type="EL2002" name="D3"/>
+    <slave idx="3" type="generic" vid="0x00000083" pid="0x000000b0" name="D4">
+      <!--R88D-1SN01H-ECT 200V/400W ServoDrive-->
+      <syncManager idx="0" dir="in"/>
+      <syncManager idx="1" dir="out"/>
+      <syncManager idx="2" dir="out">
+        <pdo idx="1702">
+          <pdoEntry idx="6040" subIdx="00" bitLen="16" halPin="pin-6040-00" halType="BLANK"/>
+          <pdoEntry idx="607a" subIdx="00" bitLen="32" halPin="pin-607a-00" halType="BLANK"/>
+          <pdoEntry idx="60ff" subIdx="00" bitLen="32" halPin="pin-60ff-00" halType="BLANK"/>
+          <pdoEntry idx="6071" subIdx="00" bitLen="16" halPin="pin-6071-00" halType="BLANK"/>
+          <pdoEntry idx="6060" subIdx="00" bitLen="8" halPin="pin-6060-00" halType="BLANK"/>
+          <pdoEntry idx="60b8" subIdx="00" bitLen="16" halPin="pin-60b8-00" halType="BLANK"/>
+          <pdoEntry idx="607f" subIdx="00" bitLen="32" halPin="pin-607f-00" halType="BLANK"/>
+        </pdo>
+      </syncManager>
+      <syncManager idx="3" dir="in">
+        <pdo idx="1b04">
+          <pdoEntry idx="603f" subIdx="00" bitLen="16" halPin="pin-603f-00" halType="BLANK"/>
+          <pdoEntry idx="6041" subIdx="00" bitLen="16" halPin="pin-6041-00" halType="BLANK"/>
+          <pdoEntry idx="6064" subIdx="00" bitLen="32" halPin="pin-6064-00" halType="BLANK"/>
+          <pdoEntry idx="6077" subIdx="00" bitLen="16" halPin="pin-6077-00" halType="BLANK"/>
+          <pdoEntry idx="6061" subIdx="00" bitLen="8" halPin="pin-6061-00" halType="BLANK"/>
+          <pdoEntry idx="60b9" subIdx="00" bitLen="16" halPin="pin-60b9-00" halType="BLANK"/>
+          <pdoEntry idx="60ba" subIdx="00" bitLen="32" halPin="pin-60ba-00" halType="BLANK"/>
+          <pdoEntry idx="60bc" subIdx="00" bitLen="32" halPin="pin-60bc-00" halType="BLANK"/>
+          <pdoEntry idx="60fd" subIdx="00" bitLen="32" halPin="pin-60fd-00" halType="BLANK"/>
+          <pdoEntry idx="606c" subIdx="00" bitLen="32" halPin="pin-606c-00" halType="BLANK"/>
+        </pdo>
+      </syncManager>
+    </slave>
+  </master>
+</masters>
