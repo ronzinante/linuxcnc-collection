@@ -14,6 +14,7 @@
       - [Adding BECKHOFF modules](#adding-beckhoff-modules)
       - [Adding OMRON R88D-1SN04H-ECT servo drive](#adding-omron-r88d-1sn04h-ect-servo-drive)
   - [Test request](#test-request)
+  - [Next step](#next-step)
 
 ## Hardware overview
 
@@ -62,7 +63,7 @@ flowchart LR
     LError-->|check dmseg, pid slave in ethercat-conf.xml, wirings, ethercat service status...| A
     LGUI --> D
     D{check ethercat<br>slaves state} -->|all OP| F[YEE-HAW]
-    D -->|PREOP| E[check dmseg, pid slave in ethercat-conf.xml, wirings...]
+    D -->|PREOP| E[check dmseg, pid slave in ethercat-conf.xml, wirings, servo drive error codes...]
 ```
 
 ### cia402.hal
@@ -95,6 +96,8 @@ In the file axis.ini add in the [HAL] section the following:
 ```sh
 HALFILE = cia402.hal
 ```
+
+Complete file: [axis.ini](config/beckhoff+omron/axis.ini)
 
 ### ethercat-conf.xml
 
@@ -147,8 +150,6 @@ The ethercat-conf.xml file looks like this:
 </masters>
 ```
 
-
-
 Ethercat slaves status must be in OP state when LinuxCNC application is open.
 
 ```sh
@@ -187,6 +188,8 @@ Below an extract of [ethercat-conf.xml](config/beckhoff+omron/ethercat-conf.xml)
 <!--...-->
 ```
 
+Deep dive into: [ethercat-config](deep-dive-ethercat-config.md)
+
 Ethercat slaves status must be in OP state when LinuxCNC application is open.
 
 ```sh
@@ -200,7 +203,11 @@ ethercat slaves
 # [terminal output]
 ```
 
-If the Servo Drive detects an abnormality, it outputs an error (/ERR), turns OFF the power drive circuit, and displays the error number (main and sub) on the front panel. Check:  1S-series with Built-in EtherCAT Communications User’s Manual (I586) section 12 for error description. If not related to EtherCAT communication for now is ok.
+![alt text](img/R88D-panel.png)
+
+If the Servo Drive detects an abnormality, it outputs an error (/ERR), turns OFF the power drive circuit, and displays the error number (main and sub) on the front panel. Check:  1S-series with Built-in EtherCAT Communications User’s Manual (I586) section 12 for error description.
+
+See: [omron-1sn-troubleshoot](omron-1sn-troubleshoot.md) for error codes and troubleshooting.
 
 ## Test request
 
@@ -221,3 +228,7 @@ Read value of pdo 0x603f of slave 3
 ```sh
 ethercat upload -p 3 0x603f 0 --type uint16
 ```
+
+## Next step
+
+Next step: [customizing-linuxcnc](customizing-linuxcnc.md)

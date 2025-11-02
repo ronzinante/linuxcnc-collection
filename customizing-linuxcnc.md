@@ -14,20 +14,23 @@
             └── nc_files
 ```
 
-## Add a physical external switch
+## Add external switch for homing X axis
 
 From physical side connect it to the input module.
 
-![alt text](img/beckhoff-estop.png)
+![alt text](img/beckhoff-home-switch.png)
 
-From linuxcnc side a .hal file must be modified. In this case we use a file named cia402.hal.
-Using the command net we create a connection between a signal and one or more pins.
+cia402.hal file must me modified as follows.
 
 ```sh
 #   signal    source            destination          destination
-net estop lcec.0.1.din-0
+net x-home-switch <= lcec.0.1.din-0
+net x-home-switch => joint.0.home-sw-in
 ```
 
-![alt text](img/halshow-pin.png)
+Using the command **net** we create a connection between asignal and one or more pins.
+To check status of pin: Machine > Show Hal Configuration
 
-![alt text](img/halshow-signal.png)
+Then navigate through the tree menu: Pins > lcec > 0 > 1
+
+![alt text](img/halshow-pin.png)

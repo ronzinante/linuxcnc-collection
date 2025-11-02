@@ -68,3 +68,5 @@ net x-pos-fb    => joint.0.motor-pos-fb   <= cia402.0.pos-fb
 
 #homing
 net x-home-index <= joint.0.index-enable  => cia402.0.home
+net x-home-switch <= lcec.0.1.din-0
+net x-home-switch => joint.0.home-sw-in
